@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RunStart - Project UKL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--gray);
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .team {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .member {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .chart-box {
+      text-align: center;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+    }
+
+    a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>RUNSTART</h1>
+  <p>Proyek UKL - Website Program Latihan Lari</p>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h2>Tentang Proyek</h2>
+  <p>
+    RunStart adalah website sederhana yang membantu pelari pemula
+    memulai latihan lari secara terstruktur dan terukur.
+  </p>
+</section>
+
+<!-- PERMASALAHAN -->
+<section class="box">
+  <h2>Permasalahan</h2>
+  <p>
+    Banyak pemula yang ingin mulai lari tetapi tidak tahu program latihan
+    yang aman dan cara mengatur kecepatan (pace) dan intensitas yang benar sesuai sesi latihan.
+  </p>
+</section>
+
+<!-- SOLUSI -->
+<section class="box">
+  <h2>Solusi</h2>
+  <p>
+    RunStart menyediakan program latihan lari pemula, kalkulator pace dan membantu menetukan zona intensitas latihan sesuai program
+    untuk membantu pengguna berlatih secara efektif.
+  </p>
+</section>
+
+<!-- MANFAAT -->
+<section class="box">
+  <h2>Manfaat</h2>
+  <ul>
+    <li>Mengurangi risiko cedera</li>
+    <li>Latihan lebih terstruktur</li>
+    <li>Mudah digunakan oleh pemula</li>
+  </ul>
+</section>
+
+<!-- TARGET USER -->
+<section class="box">
+  <h2>Target Pengguna</h2>
+  <p>
+    pelari pemula yang ingin memulai latihan lari dengan program yang sederhana dan sesuai kemampun fisik
+  </p>
+</section>
+
+<!-- DATA & GRAFIK -->
+<section class="box chart-box">
+  <h2>Tugas olah data</h2>
+  <p>
+  Datadiolah menggunakan spreadsheet dan
+  divisualisasikan dalam bentuk grafik.
+  <br>
+  <a href="https://docs.google.com/spreadsheets/d/1hWy90IAVrFLneB7V9LU94kGz4qkQUHTc/edit?usp=sharing&ouid=114052749595682688166&rtpof=true&sd=true" target="_blank">
+    Lihat Data Spreadsheet
+  </a>
+</p>
+  <canvas id="myChart" width="400" height="200"></canvas>
+</section>
+
+<!-- PROFIL TIM -->
+<section class="box">
+  <h2>Profil Tim</h2>
+  <div class="team">
+    <div class="member">
+      <img src="https://via.placeholder.com/150" alt="">
+      <p>Multazam Mirza Syahrul Azmi</p>
+    </div>
+   
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 | SMK / Sekolah Kamu | Proyek UKL
+</footer>
+
+<!-- GRAFIK (VANILLA JS) -->
+<script>
+  const canvas = document.getElementById("myChart");
+  const ctx = canvas.getContext("2d");
+
+  const data = [2, 3, 4, 5, 6];
+  const max = Math.max(...data);
+
+  data.forEach((value, index) => {
+    const barHeight = (value / max) * 150;
+    ctx.fillStyle = "#3b82f6";
+    ctx.fillRect(60 * index + 40, 180 - barHeight, 30, barHeight);
+    ctx.fillStyle = "#1e293b";
+    ctx.fillText(value + " km", 60 * index + 35, 195);
+  });
+</script>
+
+</body>
+</html>
